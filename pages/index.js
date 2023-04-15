@@ -3,8 +3,20 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Router from 'next/router'
+import {
+  LivepeerConfig,
+  createReactClient,
+  studioProvider,
+} from '@livepeer/react';
+import * as React from 'react';
+import { AccessControl } from '../components/AccessControl';
 
 const inter = Inter({ subsets: ['latin'] })
+const livepeerClient = createReactClient({
+  provider: studioProvider({
+    apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY,
+  }),
+});
 
 export default function Home() {
   const connectWallet = async () => {
@@ -127,6 +139,9 @@ export default function Home() {
         </div> */}
         <button onClick={connectWallet} className={styles.btn}>Connect Your Wallet</button>
       </main>
+      <LivepeerConfig client={livepeerClient}>
+      <AccessControl />
+    </LivepeerConfig>
     </>
   )
 }

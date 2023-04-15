@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-// import { AccessControl } from '../components/AccessControl';
+import { AccessControl } from '../components/AccessControl';
 
 const Livestream = () => {
   return (
     <div>
       <h1>Livestream</h1>
-      {/* <AccessControl /> */}
+      <AccessControl />
     </div>
   );
 };
