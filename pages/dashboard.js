@@ -2,7 +2,6 @@ import Router from "next/router";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import Ticket from "../components/Ticket";
-import LiveStream from "../components/LiveStream";
 import Link from 'next/link';
 
 
@@ -82,7 +81,7 @@ export default function Dashboard() {
           Sign Out
         </button>
         <Link href="/Livestream">
-        Livestream
+        Livestream/VOD
       </Link>
       </nav>
       <h1>Welcome {truncateAddress(walletAddress)}</h1>
@@ -91,10 +90,10 @@ export default function Dashboard() {
         <div className={styles.wrapper}>
         {/* ... */}
         {isLensCollect1 && (
-        <Ticket eventTitle="Event 1" eventColor="yellow" />
+        <Ticket eventTitle="Event 1" eventColor='#6699ff' />
         )}
         {isLensCollect2 && (
-        <Ticket eventTitle="Event 2" eventColor="green" />
+        <Ticket eventTitle="Event 2" eventColor='#6699ff' />
         )}
   </div>
     </div>
