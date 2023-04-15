@@ -227,3 +227,45 @@
     transform: rotate(0deg);
   }
 }
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background: #33ff05;
+  color: var(--background);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 200ms, transform 200ms;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background: #33ff05a8;
+  transform: translateY(-2px);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.nav a:hover {
+  background-color: #555;
+  transition: background-color 0.3s;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

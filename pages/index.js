@@ -2,10 +2,27 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import Router from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const connectWallet = async () => {
+    try{
+      const { ethereum } = window
+      if(!ethereum){
+        alert("Get MetaMask!")
+        return
+      }
+      const address = await ethereum.request({ method: 'eth_requestAccounts' })
+      console.log(address)
+      localStorage.setItem('address', address[0])
+      Router.push('/dashboard')
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
   return (
     <>
       <Head>
@@ -15,7 +32,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+        {/* <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.js</code>
@@ -107,7 +124,8 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
+        <button onClick={connectWallet} className={styles.btn}>Connect Your Wallet</button>
       </main>
     </>
   )
